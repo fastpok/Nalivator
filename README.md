@@ -13,5 +13,5 @@ sudo journalctl -u nalivator --since yesterday
 
 Перезагрузить сервер:
 ```bash
-sudo systemctl restart  nalivator
+sudo systemctl restart nalivator
 ```
