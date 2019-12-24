@@ -6,9 +6,9 @@ https://www.hackster.io/hackershack/smart-bartender-5c430e
 https://www.nalivator.tech
 
 ## Полезные команды
-Показать логи за последние сутки:
+Показать логи (последние 20 строк):
 ```bash
-sudo journalctl -u nalivator --since yesterday
+sudo journalctl -u nalivator -n 20
 ```
 
 Перезагрузить сервер:
