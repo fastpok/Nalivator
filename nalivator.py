@@ -1,9 +1,17 @@
+# coding: utf-8
+
 from flask import Flask
+from flask_sse import sse
+
 app = Flask(__name__)
+app.config["REDIS_URL"] = "redis://localhost"
+app.register_blueprint(sse, url_prefix='/sse-stream')
 
-@app.route("/")
-def hello():
-    return "<h1 style='color:blue'>Hello There!</h1>"
+@app.route('/')
+def index():
+  return 'hello'
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+@app.route('/hello')
+def publish_hello():
+  sse.publish({"message": "Hello!"}, type='greeting')
+  return "Message sent!"
