@@ -6,12 +6,7 @@ https://www.hackster.io/hackershack/smart-bartender-5c430e
 https://www.nalivator.tech
 
 ## Полезные команды
-Показать логи (последние 20 строк):
-```bash
-sudo journalctl -u nalivator -n 20
+Запустить сервер
 ```
-
-Перезагрузить сервер:
-```bash
-sudo systemctl restart nalivator
+gunicorn --worker-class eventlet -w 1 --certfile cert.pem --keyfile key.pem -b 0.0.0.0:443 nalivator:app
 ```
